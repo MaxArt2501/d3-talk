@@ -1,0 +1,32 @@
+{
+  "name": "p-slides-boilerplate",
+  "version": "0.0.1",
+  "description": "Presentation boilerplate using P-Slides",
+  "scripts": {
+    "build": "gulp",
+    "clean": "gulp clean",
+    "serve": "gulp serve"
+  },
+  "keywords": [
+    "presentation",
+    "boilerplate"
+  ],
+  "author": {
+    "name": "Massimo Artizzu",
+    "email": "maxart.x@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "p-slides": "^0.2.0",
+    "prismjs": "^1.15.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-tap": "^1.0.1",
+    "rimraf": "^2.6.2"
+  }
+}
