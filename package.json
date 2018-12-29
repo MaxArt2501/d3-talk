@@ -1,7 +1,7 @@
 {
-  "name": "p-slides-boilerplate",
+  "name": "d3-talk",
   "version": "0.0.1",
-  "description": "Presentation boilerplate using P-Slides",
+  "description": "Data visualization with D3",
   "scripts": {
     "build": "gulp",
     "clean": "gulp clean",
@@ -9,7 +9,7 @@
   },
   "keywords": [
     "presentation",
-    "boilerplate"
+    "talk"
   ],
   "author": {
     "name": "Massimo Artizzu",
