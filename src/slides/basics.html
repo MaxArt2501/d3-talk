@@ -1,0 +1,24 @@
+<p-slide>
+  <h2 class="our-header">The basics</h2>
+  <h4><code>select</code> and friends</h4>
+  <p-fragment>
+    <p>Think of jQuery&hellip;</p>
+  </p-fragment>
+  <p-fragment>
+    <p>&hellip; but it sucks 🤦‍♂️</p>
+  </p-fragment>
+</p-slide>
+<p-slide>
+  <pre><code class="language-js">import { select } from 'd3-selection';</code>
+
+<p-fragment><code class="language-js">const app = select('#app')</code></p-fragment>
+    <p-fragment><code class="language-js">.text('Hello, world!')</code></p-fragment>
+    <p-fragment><code class="language-js">.attr('id', 'hello')</code></p-fragment>
+    <p-fragment><code class="language-js">.classed('done', true);</code></p-fragment>
+
+<p-fragment><code class="language-js">const btn = app.append('button')</code></p-fragment>
+    <p-fragment><code class="language-js">.attr('type', 'button')
+    .text('Click me!')</code></p-fragment>
+    <p-fragment><code class="language-js">.on('click', handleClick);</code></p-fragment>
+</pre>
+</p-slide>

@@ -6,8 +6,16 @@ p-slide {
   position: relative;
 }
 
-pre p-fragment code[class*="language-"] {
-  white-space: pre;
+pre p-fragment {
+  opacity: .2;
+
+  &[aria-hidden="false"] {
+    opacity: 1;
+  }
+
+  code[class*="language-"] {
+    white-space: pre;
+  }
 }
 
 :not(pre) > code {
