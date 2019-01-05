@@ -14,6 +14,13 @@
   margin: 0 0 .5em;
 }
 
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5em, 1fr));
+  grid-gap: 1em;
+  align-items: center;
+}
+
 .cover {
   --slide-bg: var(--brand-color);
   background: var(--slide-bg) no-repeat center/133vmin url('../img/logo-antreem-contour.svg');

@@ -1,0 +1,31 @@
+<p-slide>
+  <h2 class="our-header">Data joins</h2>
+</p-slide>
+<p-slide class="columns">
+  <pre class="big"><code class="language-html">&lt;ul>&lt;/ul></code>
+
+<p-fragment><code class="language-js">const names = [
+  'Alice',
+  'Bruno',
+  'Camilla'
+];</code></p-fragment></pre>
+  <p-fragment>
+    <ul>
+      <li>◾ Alice</li>
+      <li>◾ Bruno</li>
+      <li>◾ Camilla</li>
+    </ul>
+  </p-fragment>
+</p-slide>
+<p-slide>
+  <pre class="big self-center"><code class="language-js">const items = select('ul')</code>
+  <p-fragment><code class="language-js">.selectAll('li')  // 😮</code></p-fragment>
+  <p-fragment><code class="language-js">.data(names);     // 🤔</code></p-fragment>
+
+<p-fragment><code class="language-js">items.enter()</code></p-fragment>
+  <p-fragment><code class="language-js">.append('li')</code></p-fragment>
+  <p-fragment><code class="language-js">.text((name, i) => name);</code></p-fragment></pre>
+  <p-fragment class="self-center">
+    <p><code>items</code> is a so-called <em>data join</em>.</p>
+  </p-fragment>
+</p-slide>

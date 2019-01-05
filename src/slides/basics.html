@@ -9,16 +9,26 @@
   </p-fragment>
 </p-slide>
 <p-slide>
-  <pre><code class="language-js">import { select } from 'd3-selection';</code>
+  <pre class="self-center"><code class="language-js">import { select } from 'd3-selection';</code>
 
 <p-fragment><code class="language-js">const app = select('#app')</code></p-fragment>
     <p-fragment><code class="language-js">.text('Hello, world!')</code></p-fragment>
     <p-fragment><code class="language-js">.attr('id', 'hello')</code></p-fragment>
     <p-fragment><code class="language-js">.classed('done', true);</code></p-fragment>
 
-<p-fragment><code class="language-js">const btn = app.append('button')</code></p-fragment>
-    <p-fragment><code class="language-js">.attr('type', 'button')
-    .text('Click me!')</code></p-fragment>
+<p-fragment><code class="language-js">const chk = app.append('input')</code></p-fragment>
+    <p-fragment><code class="language-js">.attr('type', 'checkbox')
+    .property('checked', true)</code></p-fragment>
     <p-fragment><code class="language-js">.on('click', handleClick);</code></p-fragment>
 </pre>
+</p-slide>
+<p-slide>
+  <pre class="self-center big"><code class="language-js">import { select, selectAll } from 'd3-selection';</code>
+
+<p-fragment><code class="language-js">selectAll('.power-of-2 li')</code></p-fragment>
+    <p-fragment><code class="language-js">.attr('data-index', (_, i) => i)</code></p-fragment>
+    <p-fragment><code class="language-js">.each(function(_, i) {</code>
+        <p-fragment><code class="language-js">const li = select(this);</code></p-fragment>
+        <p-fragment><code class="language-js">li.append('span').text((_, i) => i ** 2);</code></p-fragment>
+    });</p-fragment></pre>
 </p-slide>
