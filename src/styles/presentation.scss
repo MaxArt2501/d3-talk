@@ -91,3 +91,25 @@
     height: 7em;
   }
 }
+
+.codesplain {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 1em;
+  align-items: start;
+
+  aside {
+    white-space: pre-line;
+    font-size: 50%;
+    margin: .5em 0;
+    line-height: 1.5;
+    padding: 1em 0;
+  }
+  .hand::before {
+    content: "👈";
+    margin-left: -2em;
+    display: inline-block;
+    text-align: center;
+    width: 2em;
+  }
+}

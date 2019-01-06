@@ -2,7 +2,7 @@
   <h2 class="our-header">Data joins</h2>
 </p-slide>
 <p-slide class="columns">
-  <pre class="big"><code class="language-html">&lt;ul>&lt;/ul></code>
+  <pre class="big"><code class="language-html">&lt;ul id="names">&lt;/ul></code>
 
 <p-fragment><code class="language-js">const names = [
   'Alice',
@@ -18,14 +18,80 @@
   </p-fragment>
 </p-slide>
 <p-slide>
-  <pre class="big self-center"><code class="language-js">const items = select('ul')</code>
-  <p-fragment><code class="language-js">.selectAll('li')  // 😮</code></p-fragment>
+  <pre class="big self-center"><code class="language-js">const items = select('ul#names')</code>
+  <p-fragment><code class="language-js">.selectAll('li.name')  // 😮</code></p-fragment>
   <p-fragment><code class="language-js">.data(names);     // 🤔</code></p-fragment>
 
 <p-fragment><code class="language-js">items.enter()</code></p-fragment>
-  <p-fragment><code class="language-js">.append('li')</code></p-fragment>
+  <p-fragment><code class="language-js">.append('li')
+  .attr('class', 'name')</code></p-fragment>
   <p-fragment><code class="language-js">.text((name, i) => name);</code></p-fragment></pre>
   <p-fragment class="self-center">
     <p><code>items</code> is a so-called <em>data join</em>.</p>
   </p-fragment>
+</p-slide>
+<p-slide>
+  <svg viewBox="0 0 720 240" style="height: 60%; font-size: 20%;">
+    <g transform="translate(0,128)">
+      <g transform="translate(300)">
+        <circle r="110" style="stroke: currentColor; stroke-width: 1.5px; fill: rgba(49, 130, 189, .4);"></circle>
+        <text y="-120" dy=".35em" text-anchor="middle" style="font-weight: bold;">Data</text>
+        <text x="-50" dy=".35em" text-anchor="middle">Enter</text>
+      </g>
+      <g transform="translate(420)">
+        <circle r="110" style="stroke: currentColor; stroke-width: 1.5px; fill: rgba(255, 102, 0, .4);"></circle>
+        <text y="-120" dy=".35em" text-anchor="middle" style="font-weight: bold;">Elements</text>
+        <text x="50" dy=".35em" text-anchor="middle">Exit</text>
+      </g>
+      <text x="360" dy=".35em" text-anchor="middle">Update</text>
+    </g>
+  </svg>
+  <a class="self-center" style="font-size: 50%; margin-top: 1em;" href="https://bost.ocks.org/mike/join/">Mike Bostock - Thinking with Joins</a>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Add missing elements</h3>
+  <div class="codesplain">
+    <pre><code class="language-js">items.enter()</code>
+  <p-fragment><code class="language-js">.append('li')</code></p-fragment>
+  <p-fragment index="1"><code class="language-js">.attr('class', 'name')</code></p-fragment>
+  <p-fragment index="2"><code class="language-js">.text(function(name, index) {
+    return name;
+  });</code></p-fragment></pre>
+    <aside>
+      <p-fragment class="hand">Appended to <code>ul#names</code></p-fragment>
+      <p-fragment index="1" class="hand">Must match <code>li.name</code></p-fragment>
+      <p-fragment index="2" class="hand"><code>name</code> = Alice, &hellip;</p-fragment>
+      <p-fragment index="2"><code>index</code> = 0, 1, &hellip;</p-fragment>
+      <p-fragment index="2"><code>this</code> = <code>&lt;li></code></p-fragment>
+    </aside>
+  </div>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Update existing elements</h3>
+  <div class="columns">
+    <aside>
+      <pre><code class="language-js">items</code>
+  <p-fragment><code class="language-js">.text(function(name, index) {
+    return name;
+  });</code></p-fragment></pre>
+    <p-fragment>Or in one pass&hellip;</p-fragment>
+    </aside>
+    <p-fragment>
+      <pre><code class="language-js">items
+  .enter()
+    .append('li')
+    .attr('class', 'name')
+  .merge(items)
+    .text(name => name);</code></pre></p-fragment>
+  </div>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Remove unused elements</h3>
+    <pre class="self-center big"><code class="language-js">items</code>
+  <p-fragment><code class="language-js">.exit()</code></p-fragment>
+  <p-fragment><code class="language-js">.remove();</code></p-fragment></pre>
+</p-slide>
+<p-slide>
+  <iframe data-lazy-src="https://codesandbox.io/embed/x2no0j1ryp?fontsize=24" style="width:100%; height:80%; border:0; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+  <a class="self-center" href="https://codesandbox.io/s/x2no0j1ryp">codesandbox.io/s/x2no0j1ryp</a>
 </p-slide>
