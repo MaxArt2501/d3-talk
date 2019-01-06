@@ -9,6 +9,7 @@ p-slide {
 pre p-fragment {
   opacity: .2;
 
+  &[aria-hidden="true"] p-fragment,
   &[aria-hidden="false"] {
     opacity: 1;
   }
