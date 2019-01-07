@@ -1,26 +1,28 @@
 <p-slide>
   <h2 class="our-header">Data joins</h2>
 </p-slide>
-<p-slide class="columns">
-  <pre class="big"><code class="language-html">&lt;ul id="names">&lt;/ul></code>
+<p-slide>
+  <div class="columns">
+    <pre class="big"><code class="language-html">&lt;ul id="names">&lt;/ul></code>
 
 <p-fragment><code class="language-js">const names = [
   'Alice',
   'Bruno',
   'Camilla'
 ];</code></p-fragment></pre>
-  <p-fragment>
-    <ul>
-      <li>◾ Alice</li>
-      <li>◾ Bruno</li>
-      <li>◾ Camilla</li>
-    </ul>
-  </p-fragment>
+    <p-fragment>
+      <ul>
+        <li>◾ Alice</li>
+        <li>◾ Bruno</li>
+        <li>◾ Camilla</li>
+      </ul>
+    </p-fragment>
+  </div>
 </p-slide>
 <p-slide>
   <pre class="big self-center"><code class="language-js">const items = select('ul#names')</code>
   <p-fragment><code class="language-js">.selectAll('li.name')  // 😮</code></p-fragment>
-  <p-fragment><code class="language-js">.data(names);     // 🤔</code></p-fragment>
+  <p-fragment><code class="language-js">.data(names);          // 🤔</code></p-fragment>
 
 <p-fragment><code class="language-js">items.enter()</code></p-fragment>
   <p-fragment><code class="language-js">.append('li')
