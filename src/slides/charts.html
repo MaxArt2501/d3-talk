@@ -2,61 +2,90 @@
   <h2 class="our-header">Ok, but&hellip; the charts?!</h2>
 </p-slide>
 <p-slide>
-  <svg viewBox="-400 -300 800 600" style="font-size: 25%;">
-    <defs>
-      <style>
-        ellipse, line {
-          fill: rgb(247, 200, 148);
-          stroke: currentColor;
-          stroke-width: 1px;
-        }
-        text {
-          dominant-baseline: central;
-          text-anchor: middle;
-        }
-      </style>
-    </defs>
-    <g transform="translate(0, -200)">
-      <line x2="0" y2="200"/>
-      <ellipse rx="75" ry="50"/>
-      <text>d3-axis</text>
-    </g>
-    <g transform="translate(212, -141)">
-      <line x2="-212" y2="141"/>
-      <ellipse rx="75" ry="50"/>
-      <text>d3-scale</text>
-    </g>
-    <g transform="translate(300, 0)">
-      <line x2="-300" y2="0"/>
-      <ellipse rx="75" ry="50"/>
-      <text>d3-hierarchy</text>
-    </g>
-    <g transform="translate(212, 141)">
-      <line x2="-212" y2="-141"/>
-      <ellipse rx="75" ry="50"/>
-      <text>d3-geo</text>
-    </g>
-    <g transform="translate(0, 200)">
-      <line x2="0" y2="-200"/>
-      <ellipse rx="75" ry="50"/>
-      <text>...</text>
-    </g>
-    <g transform="translate(-212, -141)">
-      <line x2="212" y2="141"/>
-      <ellipse rx="75" ry="50"/>
-      <text>d3-path</text>
-    </g>
-    <g transform="translate(-300, 0)">
-      <line x2="300" y2="0"/>
-      <ellipse rx="75" ry="50"/>
-      <text>d3-polygon</text>
-    </g>
-    <g transform="translate(-212, 141)">
-      <line x2="212" y2="-141"/>
-      <ellipse rx="75" ry="50"/>
-      <text>d3-interpolate</text>
-    </g>
-    <circle r="100" fill="#fff"/>
-  </svg>
+  <div class="svg-layers">
+    <svg viewBox="-400 -300 800 600" style="font-size: 25%; height: 56em;">
+      <defs>
+        <style>
+          ellipse, line {
+            fill: rgb(247, 200, 148);
+            stroke: currentColor;
+            stroke-width: 1px;
+          }
+          text {
+            dominant-baseline: central;
+            text-anchor: middle;
+          }
+        </style>
+      </defs>
+      <g transform="translate(0, -200)">
+        <line x2="0" y2="200"/>
+        <ellipse rx="75" ry="50"/>
+        <text>d3-axis</text>
+      </g>
+      <g transform="translate(212, -141)">
+        <line x2="-212" y2="141"/>
+        <ellipse rx="75" ry="50"/>
+        <text>d3-scale</text>
+      </g>
+      <g transform="translate(300, 0)">
+        <line x2="-300" y2="0"/>
+        <ellipse rx="75" ry="50"/>
+        <text>d3-hierarchy</text>
+      </g>
+      <g transform="translate(212, 141)">
+        <line x2="-212" y2="-141"/>
+        <ellipse rx="75" ry="50"/>
+        <text>d3-geo</text>
+      </g>
+      <g transform="translate(0, 200)">
+        <line x2="0" y2="-200"/>
+        <ellipse rx="75" ry="50"/>
+        <text>...</text>
+      </g>
+      <g transform="translate(-212, -141)">
+        <line x2="212" y2="141"/>
+        <ellipse rx="75" ry="50"/>
+        <text>d3-path</text>
+      </g>
+      <g transform="translate(-300, 0)">
+        <line x2="300" y2="0"/>
+        <ellipse rx="75" ry="50"/>
+        <text>d3-polygon</text>
+      </g>
+      <g transform="translate(-212, 141)">
+        <line x2="212" y2="-141"/>
+        <ellipse rx="75" ry="50"/>
+        <text>d3-interpolate</text>
+      </g>
+      <circle r="100" fill="#fff"/>
+    </svg>
+  </div>
   <img src="img/d3-logo.svg" alt="Logo of D3.js" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 3em;">
+</p-slide>
+<p-slide>
+  <h2 class="our-header">Scales and axes</h2>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Types of scales</h3>
+  <p>From the package <code>d3-scale</code>:</p>
+  <ul>
+    <li><p-fragment>📈 <code>scaleLinear</code></p-fragment></li>
+    <li><p-fragment>📈 <code>scalePow</code>, <code>scaleLog</code></p-fragment></li>
+    <li><p-fragment>📈 <code>scaleTime</code></p-fragment></li>
+    <li><p-fragment>📈 <code>scaleOrdinal</code>, <code>scaleBand</code>, <code>scalePoint</code></p-fragment></li>
+    <li><p-fragment>📈 <code>scaleQuantize</code>, <code>scaleQuantile</code>, &hellip;</p-fragment></li>
+  </ul>
+</p-slide>
+<p-slide>
+  <h3 class="center">Scales are <em>functions</em></h3>
+  <div class="self-center">
+    <p>They <em>all</em> need:</p>
+    <ul>
+      <li><p-fragment>👉 a <em>domain</em>;</p-fragment></li>
+      <li><p-fragment>
+        👉 a <em>range</em>
+        <p-fragment>("codomain").</p-fragment>
+      </p-fragment></li>
+    </ul>
+  </div>
 </p-slide>
