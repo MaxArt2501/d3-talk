@@ -89,3 +89,54 @@
     </ul>
   </div>
 </p-slide>
+<p-slide>
+  <pre class="self-center"><code class="language-js">import { scaleLinear } from 'd3-scale';</code>
+
+<p-fragment><code class="language-js">const scale = scaleLinear()</code></p-fragment>
+  <p-fragment><code class="language-js">.domain([ 0, 100 ])</code></p-fragment>
+  <p-fragment><code class="language-js">.range([ 50, 450 ]);</code></p-fragment>
+
+<p-fragment><code class="language-js">scale(0);     // 50
+scale(50);    // 250
+scale(12.5);  // 100
+scale(-100);  // -350</code></p-fragment></pre>
+</p-slide>
+<p-slide>
+  <div class="columns">
+    <pre><code class="language-js">const points = [
+  {x: 10, y: 30}, {x: 7, y: 12},
+  {x: 24, y: 9}, {x: 14, y: 23}
+];</code>
+<p-fragment><code class="language-js">const scaleX = scaleLinear()
+  .domain([0, 40]).range([0, 200]);</code></p-fragment>
+<p-fragment><code class="language-js">const scaleY = scaleY.copy();</code></p-fragment>
+
+<p-fragment><code class="language-js">select('svg').selectAll('.point')</code></p-fragment>
+  <p-fragment><code class="language-js">.data(points).enter()</code></p-fragment>
+    <p-fragment><code class="language-js">.append('circle')
+    .attr('class', 'point')</code></p-fragment>
+    <p-fragment><code class="language-js">.attr('cx', p => scaleX(p.x))</code></p-fragment>
+    <p-fragment><code class="language-js">.attr('cy', p => scaleY(p.y));</code></p-fragment></pre>
+    <p-fragment>
+      <svg viewBox="0 0 200 200">
+        <rect width="200" height="200" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="50" cy="150" r="3" fill="red"/>
+        <circle cx="35" cy="60" r="3" fill="red"/>
+        <circle cx="120" cy="45" r="3" fill="red"/>
+        <circle cx="70" cy="115" r="3" fill="red"/>
+      </svg>
+    </p-fragment>
+  </div>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Axes</h3>
+  <p>From the package <code>d3-axis</code>:</p>
+  <p-fragment class="self-center">
+    <ul>
+      <li>📈 <code>axisTop</code></li>
+      <li>📈 <code>axisRight</code></li>
+      <li>📈 <code>axisBottom</code></li>
+      <li>📈 <code>axisLeft</code></li>
+    </ul>
+  </p-fragment>
+</p-slide>
