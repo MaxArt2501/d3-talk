@@ -1,0 +1,43 @@
+<p-slide>
+  <h2 class="our-header">Common charts</h2>
+</p-slide>
+<p-slide>
+  <p class="center">From the package <code>d3-shape</code>:</p>
+  <ul class="self-center">
+    <li><p-fragment>📈 line/area charts</p-fragment></li>
+    <li><p-fragment>📈 pie charts</p-fragment></li>
+    <li><p-fragment>📈 stacked bar charts</li>
+    <li><p-fragment>📈 link charts</li>
+  </ul>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Line charts</h3>
+</p-slide>
+<p-slide>
+  <pre class="self-center"><code class="language-js">import { line } from 'd3-shape';
+const data = [
+  [ 19, 19, 24, 13, 20, 24, 14, 57, 16, 60, 30 ],
+  [ 13, 36, 14, 24, 31, 18, 26, 40, 10, 29 ],
+  [ 43, 18, 15, 30, 21, 19, 65, 20, 18, 14 ]
+];</code>
+<p-fragment><code class="language-js">const dataLine = line()</code></p-fragment>
+  <p-fragment><code class="language-js">.x((_, i) => scaleX(i))</code></p-fragment>
+  <p-fragment><code class="language-js">.y(d => scaleY(d));</code></p-fragment>
+<p-fragment><code class="language-js">const lines = select('g.chart')
+  .selectAll('path').data(data);</code></p-fragment>
+<p-fragment><code class="language-js">lines.enter()
+  .append('path')
+  .attr('d', dataLine);</code></p-fragment></pre>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Pie charts</h3>
+</p-slide>
+<p-slide>
+  <h4 class="center">Disclaimer:</h4>
+  <p-fragment>
+    <h3 class="center">Don't make pie charts.</h3>
+  </p-fragment>
+</p-slide>
+<p-slide>
+  <h4 class="center">(But seriously, don't make pie charts.)</h4>
+</p-slide>
