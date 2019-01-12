@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Electric current generation in Italy in the years 1963-2015</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Electric current generation in Italy in the years 1963-2015</h1>
+    <figure>
+      <svg id="chart"></svg>
+      <caption>
+        <ul id="legend"></ul>
+      </caption>
+    </figure>
+    Source:
+    <a href="https://www.terna.it/en-gb/sistemaelettrico/statisticheeprevisioni/datistatistici.aspx">Terna Statistical Data</a>
+  </main>
+  <script src="node_modules/d3-collection/dist/d3-collection.js"></script>
+  <script src="node_modules/d3-array/dist/d3-array.js"></script>
+  <script src="node_modules/d3-color/dist/d3-color.js"></script>
+  <script src="node_modules/d3-format/dist/d3-format.js"></script>
+  <script src="node_modules/d3-interpolate/dist/d3-interpolate.js"></script>
+  <script src="node_modules/d3-time/dist/d3-time.js"></script>
+  <script src="node_modules/d3-time-format/dist/d3-time-format.js"></script>
+  <script src="node_modules/d3-selection/dist/d3-selection.js"></script>
+  <script src="node_modules/d3-scale/dist/d3-scale.js"></script>
+  <script src="node_modules/d3-axis/dist/d3-axis.js"></script>
+  <script src="node_modules/d3-path/dist/d3-path.js"></script>
+  <script src="node_modules/d3-shape/dist/d3-shape.js"></script>
+  <script src="main.js" type="module"></script>
+</body>
+</html>
