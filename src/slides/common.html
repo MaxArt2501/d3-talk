@@ -16,7 +16,7 @@
 <p-slide>
   <pre class="self-center"><code class="language-js">import { line } from 'd3-shape';
 const data = [
-  [ 19, 19, 24, 13, 20, 24, 14, 57, 16, 60, 30 ],
+  [ 19, 19, 24, 13, 20, 24, 14, 57, 16, 60 ],
   [ 13, 36, 14, 24, 31, 18, 26, 40, 10, 29 ],
   [ 43, 18, 15, 30, 21, 19, 65, 20, 18, 14 ]
 ];</code>
@@ -30,6 +30,9 @@ const data = [
   .attr('d', dataLine);</code></p-fragment></pre>
 </p-slide>
 <p-slide>
+  <iframe data-lazy-src="https://codesandbox.io/embed/lyyrll692m?fontsize=24" style="width:100%; height:80%; border:0; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+</p-slide>
+<p-slide>
   <h3 class="our-header">Pie charts</h3>
 </p-slide>
 <p-slide>
@@ -37,6 +40,20 @@ const data = [
   <p-fragment>
     <h3 class="center">Don't make pie charts.</h3>
   </p-fragment>
+</p-slide>
+<p-slide>
+  <pre class="self-center"><code class="language-js">import { arc, pie } from 'd3-shape';
+const data = [ 32, 140, 4, 13, 36, 6, 17, 24, 19, 37 ];</code>
+<p-fragment><code class="language-js">const pieData = pie(data);</code></p-fragment>
+<p-fragment><code class="language-js">const sectorArc = arc()</code></p-fragment>
+  <p-fragment><code class="language-js">.innerRadius(80)
+  .outerRadius(100)
+  .padAngle(Math.PI / 360);</code></p-fragment>
+<p-fragment><code class="language-js">const sectors = select('g.chart')
+  .selectAll('path').data(pieData);</code></p-fragment>
+<p-fragment><code class="language-js">sectors.enter()
+  .append('path')
+  .attr('d', sectorArc);</code></p-fragment></pre>
 </p-slide>
 <p-slide>
   <h4 class="center">(But seriously, don't make pie charts.)</h4>
