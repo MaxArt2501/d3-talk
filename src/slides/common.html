@@ -30,7 +30,7 @@ const data = [
   .attr('d', dataLine);</code></p-fragment></pre>
 </p-slide>
 <p-slide>
-  <iframe data-lazy-src="https://codesandbox.io/embed/lyyrll692m?fontsize=24" style="width:100%; height:80%; border:0; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+  <iframe data-lazy-src="https://codesandbox.io/embed/lyyrll692m?fontsize=24" style="width:100%; height:100%; border:0; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 </p-slide>
 <p-slide>
   <h3 class="our-header">Pie charts</h3>
@@ -57,4 +57,35 @@ const data = [ 32, 140, 4, 13, 36, 6, 17, 24, 19, 37 ];</code>
 </p-slide>
 <p-slide>
   <h4 class="center">(But seriously, don't make pie charts.)</h4>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Stacked bar charts</h3>
+</p-slide>
+<p-slide>
+  <p class="center">Similarly to line charts, we have a data <em>matrix</em>:</p>
+  <pre class="self-center"><code class="language-js">const data = [
+  [ 19, 19, 24, 13, 20, 24, 14, 57, 16, 60 ],
+  [ 13, 36, 14, 24, 31, 18, 26, 40, 10, 29 ],
+  [ 43, 18, 15, 30, 21, 19, 65, 20, 18, 14 ]
+];</code></pre>
+</p-slide>
+<p-slide>
+  <p class="center">We can make a data join <em>from a data join</em>:</p>
+  <pre class="self-center"><code class="language-js">const join = chartRoot.selectAll('.group').data(data);</code>
+<p-fragment><code class="language-js">const group = join.enter()
+  .append('g').attr('class', 'group')</code></p-fragment>
+  <p-fragment><code class="language-js">.merge(join);</code></p-fragment>
+<p-fragment><code class="language-js">join.exit().remove();</code></p-fragment>
+
+<p-fragment><code class="language-js">const subjoin = group.selectAll('.value')</code></p-fragment><p-fragment><code class="language-js">.data(d => d);</code></p-fragment>
+<p-fragment><code class="language-js">subjoin.enter()
+  .append('g').attr('class', 'value')</code></p-fragment>
+  <p-fragment><code class="language-js">.merge(subjoin)...</code></p-fragment>
+<p-fragment><code class="language-js">subjoin.exit().remove();</code></p-fragment></pre>
+</p-slide>
+<p-slide>
+  <iframe data-lazy-src="https://codesandbox.io/embed/2znnw8q16n?fontsize=24" style="width:100%; height:100%; border:0; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+</p-slide>
+<p-slide>
+  <h4 class="center">(Just&hellip; don't abuse stacked charts either.)</h4>
 </p-slide>
