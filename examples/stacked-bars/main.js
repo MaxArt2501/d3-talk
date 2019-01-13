@@ -1,4 +1,6 @@
-const { select, scaleLinear, axisBottom, axisLeft, line } = d3;
+const { select, scaleBand, scaleLinear, axisBottom, axisLeft, stack, sum, transpose } = d3;
+
+const months = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ');
 
 fetch('./data.json')
   .then(response => response.json())
@@ -20,14 +22,14 @@ fetch('./data.json')
     const innerWidth = clientWidth - margins[1] - margins[3];
     const innerHeight = clientHeight - margins[0] - margins[2];
 
-    const maxValues = data.map(({ values }) => Math.max(...values));
+    const sums = months.map((_, i) => sum(data.map(({ values }) => values[i])));
 
-    const scaleX = scaleLinear()
-      .domain([1963, 2015])
-      .nice()
+    const scaleX = scaleBand()
+      .padding(0.1)
+      .domain(months)
       .range([0, innerWidth]);
     const scaleY = scaleLinear()
-      .domain([0, Math.max(...maxValues)])
+      .domain([0, Math.max(...sums)])
       .nice()
       .range([innerHeight, 0]);
 
@@ -38,7 +40,9 @@ fetch('./data.json')
       .append('g')
       .attr('transform', `translate(${margins[3]}, ${margins[0]})`);
 
-    const xAxis = axisBottom(scaleX).tickFormat(year => `${year}`);
+    const xAxis = axisBottom(scaleX)
+      .tickPadding(8)
+      .tickSize(0);
     const yAxis = axisLeft(scaleY).tickFormat(
       value => `${Math.round(value / 1000)} TWh`
     );
@@ -46,20 +50,30 @@ fetch('./data.json')
     xAxisWrapper.call(xAxis);
     yAxisWrapper.call(yAxis);
 
-    const chartLine = line()
-      .x((_, i) => scaleX(1963 + i))
-      .y(value => scaleY(value));
+    const dataMatrix = transpose(data.map(type => type.values));
+    const stackData = stack().keys(Object.keys(data))(dataMatrix);
 
     const chartRoot = svg
       .append('g')
       .attr('class', 'chart')
       .attr('transform', `translate(${margins[3]}, ${margins[0]})`);
 
-    const lines = chartRoot.selectAll('path').data(data);
+    const stacks = chartRoot.selectAll('.stack').data(stackData);
 
-    lines
+    const layer = stacks
       .enter()
-      .append('path')
-      .attr('stroke', ({ color }) => color)
-      .attr('d', ({ values }) => chartLine(values));
+      .append('g')
+      .attr('class', 'stack')
+      .attr('fill', (_, i) => data[i].color);
+
+    const bandWidth = scaleX.bandwidth();
+    layer
+      .selectAll('rect')
+      .data(d => d)
+      .enter()
+      .append('rect')
+      .attr('x', (_, i) => scaleX(months[i]))
+      .attr('width', bandWidth)
+      .attr('y', ([, end]) => scaleY(end))
+      .attr('height', ([start, end]) => scaleY(start) - scaleY(end));
   });
