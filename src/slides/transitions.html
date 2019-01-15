@@ -30,20 +30,6 @@
   <p-fragment><code class="language-js">.style('stroke', 'black');</code></p-fragment></pre>
 </p-slide>
 <p-slide>
-  <h4 class="our-header">Classic loading</h4>
-  <pre class="self-center"><code class="language-html">&lt;script src="d3-color.min.js">&lt;/script>
-&lt;script src="d3-dispatch.min.js">&lt;/script>
-&lt;script src="d3-ease.min.js">&lt;/script>
-&lt;script src="d3-interpolate.min.js">&lt;/script>
-&lt;script src="d3-selection.min.js">&lt;/script>
-&lt;script src="d3-timer.min.js">&lt;/script>
-&lt;script src="d3-transition.min.js">&lt;/script></code>
-
-<p-fragment><code class="language-js">d3.select('rect')
-  .transition()
-  .attr('fill', 'red').style('stroke', 'black');</code></p-fragment></pre>
-</p-slide>
-<p-slide>
   <h4 class="our-header">Transition of <em>what?</em></h4>
   <ul class="self-center">
     <li>
@@ -80,11 +66,10 @@
   <div class="columns">
     <p-fragment><pre><code class="language-js">select('rect')</code>
   <p-fragment><code class="language-js">.attr('fill', 'red');</code></p-fragment>
-<p-fragment><code class="language-js">transition()</code></p-fragment>
-  <p-fragment><code class="language-js">.select('rect')</code></p-fragment>
+<p-fragment><code class="language-js">.transition()</code></p-fragment>
   <p-fragment><code class="language-js">.attr('fill', 'blue');</code></p-fragment></pre></p-fragment>
-    <p-fragment><pre><code class="language-js">transition()</code>
-  <p-fragment><code class="language-js">.select('rect')</code></p-fragment>
+    <p-fragment><pre><code class="language-js">select('rect')</code>
+  <p-fragment><code class="language-js">.transition()</code></p-fragment>
   <p-fragment><code class="language-js">.attrTween('fill', () =>
     interpolate('red', 'blue')
   );</code></p-fragment></pre></p-fragment>
@@ -92,9 +77,27 @@
 <p-fragment><p class="center">See also <code>.styleTween()</code> and <code>.tween()</code></p></p-fragment>
 </p-slide>
 <p-slide>
+  <iframe data-lazy-src="https://codesandbox.io/embed/z375662r0p?fontsize=24" style="width:100%; height:100%; border:0; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+  <a class="self-center" href="https://codesandbox.io/s/z375662r0p">codesandbox.io/s/z375662r0p</a>
+</p-slide>
+<p-slide>
   <h4 class="our-header">Chaining transitions</h4>
-  <p-fragment class="self-center"><pre><code class="language-js">transition()
+  <p-fragment class="self-center"><pre class="big"><code class="language-js">transition()
     .select('rect').attr('fill', 'red')</code>
   <p-fragment><code class="language-js">.transition()
     .attr('fill', 'blue');</code></p-fragment></pre>
+</p-slide>
+<p-slide>
+  <h4 class="our-header">Transition events</h4>
+  <p-fragment class="self-center"><pre class="big"><code class="language-js">select('rect')
+  .transition()
+  .attr('fill', 'red')</code>
+  <p-fragment><code class="language-js">.on('end', () => {
+    console.log('All done!');
+  });</code></p-fragment></pre></p-fragment>
+  <p-fragment><p class="center">Other events: <code>start</code> and <code>interrupt</code></p></p-fragment>
+</p-slide>
+<p-slide>
+  <iframe data-lazy-src="https://codesandbox.io/embed/m5qmlpqn88?fontsize=24" style="width:100%; height:100%; border:0; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+  <a class="self-center" href="https://codesandbox.io/s/m5qmlpqn88">codesandbox.io/s/m5qmlpqn88</a>
 </p-slide>
