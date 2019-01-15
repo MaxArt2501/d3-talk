@@ -1,0 +1,78 @@
+<p-slide>
+  <h2 class="our-header">D3 and modern frameworks</h2>
+</p-slide>
+<p-slide>
+  <h2 class="center">D3.js is <em>reactive</em></h2>
+</p-slide>
+<p-slide>
+  <h2 class="center">&hellip; but so are these!</h2>
+  <div class="columns">
+    <img src="img/react.svg" alt="React logo">
+    <img src="img/angular.svg" alt="Angular logo">
+    <img src="img/vue.svg" alt="Vue logo">
+  </div>
+</p-slide>
+<p-slide>
+  <h4 class="our-header">Solution #1: the black box</h4>
+  <pre class="self-center"><code class="language-js">class BarChart extends React.Component {</code>
+  <p-fragment><code class="language-js">render() {
+    return &lt;svg ref={node => this.svgRoot = node}>&lt;/svg>
+  }</code></p-fragment>
+  <p-fragment><code class="language-js">drawChart() {
+    const data = this.props.data;
+    // Use D3.js here...
+  }</code></p-fragment>
+  <p-fragment><code class="language-js">componentDidMount() { this.drawChart(); }</code></p-fragment>
+}</pre>
+</p-slide>
+<p-slide>
+  <div class="columns">
+    <aside>
+      <h4 class="center">👍</h4>
+      <ul>
+        <li><p-fragment>☝ simple enough</p-fragment></li>
+        <li><p-fragment>✌ can reuse old code</p-fragment></li>
+      </ul>
+    </aside>
+    <aside>
+      <h4 class="center">👎</h4>
+      <ul>
+        <li><p-fragment>😕 feature-redundant</p-fragment></li>
+        <li><p-fragment>🙁 "black box"</p-fragment></li>
+      </ul>
+    </aside>
+  </div>
+</p-slide>
+<p-slide>
+  <h4 class="our-header">Solution #2: functional D3</h4>
+  <pre class="self-center"><code class="language-js">class BarChart extends React.Component {</code>
+  <p-fragment><code class="language-js">constructor() {
+    this.chartLine = line()...
+  }</code></p-fragment>
+  <p-fragment><code class="language-js">render() {
+    return &lt;svg>&lt;g>
+      {this.props.data.map(row =>
+        &lt;path d={this.chartLine(row)}/>
+      )}
+    &lt;/g>&lt;/svg>
+  }</code></p-fragment>
+}</pre>
+</p-slide>
+<p-slide>
+  <div class="columns">
+    <aside>
+      <h4 class="center">👍</h4>
+      <ul>
+        <li><p-fragment>☝ leaner</p-fragment></li>
+        <li><p-fragment>✌ more performant</p-fragment></li>
+      </ul>
+    </aside>
+    <aside>
+      <h4 class="center">👎</h4>
+      <ul>
+        <li><p-fragment>😕 unorthodox</p-fragment></li>
+        <li><p-fragment>🙁 no transitions</p-fragment></li>
+      </ul>
+    </aside>
+  </div>
+</p-slide>
