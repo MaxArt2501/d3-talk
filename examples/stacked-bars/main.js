@@ -58,12 +58,12 @@ fetch('./data.json')
       .attr('class', 'chart')
       .attr('transform', `translate(${margins[3]}, ${margins[0]})`);
 
-    const stacks = chartRoot.selectAll('.stack').data(stackData);
+    const stacks = chartRoot.selectAll('.layer').data(stackData);
 
     const layer = stacks
       .enter()
       .append('g')
-      .attr('class', 'stack')
+      .attr('class', 'layer')
       .attr('fill', (_, i) => data[i].color);
 
     const bandWidth = scaleX.bandwidth();
