@@ -1,0 +1,46 @@
+<p-slide>
+  <h2 class="our-header">Server-side D3</h2>
+</p-slide>
+<p-slide>
+  <img src="img/butwhy.webp" alt="'But why?' surgeon meme" class="full-media">
+</p-slide>
+<p-slide>
+  <ul class="self-center">
+    <li>☝ dynamic web charts</li>
+    <li><p-fragment>✌ batch generation</p-fragment></li>
+    <li><p-fragment>🤟 faster client side</p-fragment></li>
+  </ul>
+</p-slide>
+<p-slide class="center">
+  <h3>D3 is a <em>DOM manipulation library</em></h3>
+  <h5>How can it work on the server side?</h5>
+</p-slide>
+<p-slide>
+  <ul class="self-center big">
+    <li>☝ Functional D3 (again)</li>
+    <li><p-fragment>✌ <em>Tricked</em> into using a faux DOM</p-fragment></li>
+  </ul>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">D3-Node</h3>
+  <p-fragment>
+    <p>Two dependencies: <code>d3</code> and <code>jsdom</code></p>
+  </p-fragment>
+  <p-fragment class="self-center">
+    <pre><code class="language-js">const D3Node = require('d3-node');</code>
+<p-fragment><code class="language-js">const doc = new D3Node();
+const root = doc.createSVG();</code></p-fragment>
+
+<p-fragment><code class="language-js">const scaleX = doc.d3.scaleLinear();</code></p-fragment>
+<p-fragment><code class="language-js">const lines = root.selectAll('path').data(data);</code></p-fragment>
+<p-fragment><code class="language-js">const output = doc.svgString(); // '&lt;svg>...&lt;/svg>'</code></p-fragment></pre>
+  </p-fragment>
+</p-slide>
+<p-slide>
+  <iframe
+    allow="geolocation; microphone; camera; midi; encrypted-media"
+    data-lazy-src="https://glitch.com/embed/#!/embed/ssd3-pie-chart?path=server.js&previewSize=33"
+    alt="ssd3-pie-chart on Glitch"
+    style="height: 100%; width: 100%; border: 0;"></iframe>
+  <a class="self-center" href="https://glitch.com/edit/#!/ssd3-pie-chart">glitch.com/edit/#!/ssd3-pie-chart</a>
+</p-slide>
