@@ -1,0 +1,79 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+}
+main {
+  padding: 1em;
+  text-align: center;
+}
+figure {
+  display: flex;
+  align-items: center;
+}
+svg {
+  flex: 1 0 auto;
+  height: 30em;
+}
+caption {
+  flex: 0 0 auto;
+}
+
+#legend {
+  list-style: none;
+  text-align: left;
+  line-height: 1.5;
+  padding: 0 0 0 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+li::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 1em;
+  background: var(--gen-color);
+  vertical-align: -0.2em;
+  margin-right: 0.25em;
+}
+li.done {
+  animation: shake 1 500ms;
+}
+
+svg > g:nth-child(2) .domain {
+  display: none;
+}
+svg > g:nth-child(2) line {
+  opacity: 0.25;
+}
+
+text {
+  font-size: 1rem;
+}
+.chart path {
+  fill: none;
+  stroke-width: 2px;
+}
+
+@keyframes shake {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  20% {
+    transform: scale(1.2) rotate(15deg);
+  }
+  40% {
+    transform: scale(1.2) rotate(-15deg);
+  }
+  60% {
+    transform: scale(1.2) rotate(15deg);
+  }
+  80% {
+    transform: scale(1.2) rotate(-15deg);
+  }
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+}
