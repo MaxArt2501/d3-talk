@@ -345,7 +345,7 @@ scale(-100);  // -350</code></p-fragment></pre>
 ];</code>
 <p-fragment><code class="language-js">const scaleX = scaleLinear()
   .domain([0, 40]).range([0, 200]);</code></p-fragment>
-<p-fragment><code class="language-js">const scaleY = scaleY.copy();</code></p-fragment>
+<p-fragment><code class="language-js">const scaleY = scaleX.copy();</code></p-fragment>
 
 <p-fragment><code class="language-js">select('svg').selectAll('.point')</code></p-fragment>
   <p-fragment><code class="language-js">.data(points).enter()</code></p-fragment>
