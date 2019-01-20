@@ -1,19 +1,21 @@
 {
   "name": "stacked-bars",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A simple proof-of-concept about the usage of D3.js to draw a stacked bar chart",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "d3-array": "^2.0.3",
     "d3-axis": "^1.0.12",
     "d3-scale": "^2.1.2",
     "d3-selection": "^1.3.2",
     "d3-shape": "^1.2.2"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
   }
 }

@@ -18,8 +18,8 @@ const seasonSelect = select('#seasonSelect')
 const scaleX = scaleBand().padding(.5);
 const scaleY = scaleLinear();
 
-const axisX = axisBottom(scaleX);
-const axisY = axisLeft(scaleY);
+const axisX = axisBottom(scaleX).tickSize(0).tickPadding(12);
+const axisY = axisLeft(scaleY).tickSize(-innerWidth);
 
 const svgRoot = select('svg');
 const svgEl = svgRoot.node();
