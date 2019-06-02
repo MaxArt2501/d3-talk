@@ -10,7 +10,8 @@
   },
   "keywords": [
     "presentation",
-    "talk"
+    "talk",
+    "d3"
   ],
   "author": {
     "name": "Massimo Artizzu",
@@ -22,7 +23,7 @@
     "prismjs": "^1.15.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.26.5",
     "gh-pages": "^2.0.1",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.10.0",
