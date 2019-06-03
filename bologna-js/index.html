@@ -396,7 +396,7 @@ scale(-100);  // -350</code></p-fragment></pre>
 <p-slide>
   <h3 class="our-header">Hot to draw a chart!</h3>
   <ul class="self-center">
-    <li><p-fragment>📈 retrive SVG sizes</p-fragment></li>
+    <li><p-fragment>📈 retrieve SVG sizes</p-fragment></li>
     <li><p-fragment>📈 setup scales and axes</p-fragment></li>
     <li><p-fragment>📈 create containers for the axes</p-fragment></li>
     <li><p-fragment>📈 and for the chart</p-fragment></li>
@@ -467,28 +467,6 @@ const data = [ 32, 140, 4, 13, 36, 6, 17, 24, 19, 37 ];</code>
 </p-slide>
 <p-slide>
   <h3 class="our-header">Stacked bar charts</h3>
-</p-slide>
-<p-slide>
-  <p class="center">Similarly to line charts, we have a data <em>matrix</em>:</p>
-  <pre class="self-center"><code class="language-js">const data = [
-  [ 19, 19, 24, 13, 20, 24, 14, 57, 16, 60 ],
-  [ 13, 36, 14, 24, 31, 18, 26, 40, 10, 29 ],
-  [ 43, 18, 15, 30, 21, 19, 65, 20, 18, 14 ]
-];</code></pre>
-</p-slide>
-<p-slide>
-  <p class="center">We can make a data join <em>from a data join</em>:</p>
-  <pre class="self-center"><code class="language-js">const join = chartRoot.selectAll('.group').data(data);</code>
-<p-fragment><code class="language-js">const group = join.enter()
-  .append('g').attr('class', 'group')</code></p-fragment>
-  <p-fragment><code class="language-js">.merge(join);</code></p-fragment>
-<p-fragment><code class="language-js">join.exit().remove();</code></p-fragment>
-
-<p-fragment><code class="language-js">const subjoin = group.selectAll('.value')</code></p-fragment><p-fragment><code class="language-js">.data(d => d);</code></p-fragment>
-<p-fragment><code class="language-js">subjoin.enter()
-  .append('g').attr('class', 'value')</code></p-fragment>
-  <p-fragment><code class="language-js">.merge(subjoin)...</code></p-fragment>
-<p-fragment><code class="language-js">subjoin.exit().remove();</code></p-fragment></pre>
 </p-slide>
 <p-slide>
   <iframe data-lazy-src="https://codesandbox.io/embed/2znnw8q16n?fontsize=24" style="width:100%; height:100%; border:0; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
@@ -578,23 +556,6 @@ const data = [ 32, 140, 4, 13, 36, 6, 17, 24, 19, 37 ];</code>
 <p-slide>
   <iframe data-lazy-src="https://codesandbox.io/embed/z375662r0p?fontsize=24" style="width:100%; height:100%; border:0; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
   <a class="self-center" href="https://codesandbox.io/s/z375662r0p">codesandbox.io/s/z375662r0p</a>
-</p-slide>
-<p-slide>
-  <h4 class="our-header">Chaining transitions</h4>
-  <p-fragment class="self-center"><pre class="big"><code class="language-js">transition()
-    .select('rect').attr('fill', 'red')</code>
-  <p-fragment><code class="language-js">.transition()
-    .attr('fill', 'blue');</code></p-fragment></pre>
-</p-slide>
-<p-slide>
-  <h4 class="our-header">Transition events</h4>
-  <p-fragment class="self-center"><pre class="big"><code class="language-js">select('rect')
-  .transition()
-  .attr('fill', 'red')</code>
-  <p-fragment><code class="language-js">.on('end', () => {
-    console.log('All done!');
-  });</code></p-fragment></pre></p-fragment>
-  <p-fragment><p class="center">Other events: <code>start</code> and <code>interrupt</code></p></p-fragment>
 </p-slide>
 <p-slide>
   <iframe data-lazy-src="https://codesandbox.io/embed/m5qmlpqn88?fontsize=24" style="width:100%; height:100%; border:0; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
