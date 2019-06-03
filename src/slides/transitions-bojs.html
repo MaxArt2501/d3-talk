@@ -1,0 +1,86 @@
+<p-slide>
+  <h2 class="our-header">Transitions</h2>
+</p-slide>
+<p-slide>
+  <h4 class="center">Disclaimer:</h4>
+  <p-fragment>
+    <h3 class="center">You <em>can</em> use CSS to animate your charts.</h3>
+  </p-fragment>
+  <p-fragment>
+    <p class="center">Even attributes like <code>x</code>, <code>r</code> or <code>&lt;path></code>'s <code>d</code>.</p>
+  </p-fragment>
+</p-slide>
+<p-slide>
+  <h2 class="center">But</h2>
+  <p-fragment>
+    <h4 class="center">
+      It works in
+      <img src="img/chrome.svg" alt="Chrome logo" style="height: 5em; display: block; margin: 0 auto;">
+      only 🙁
+    </h4>
+  </p-fragment>
+</p-slide>
+<p-slide>
+  <h3 class="our-header"><code>d3-transition</code> to the rescue!</h3>
+  <pre class="self-center big"><code class="language-js">import { transition } from 'd3-transition';</code>
+
+<p-fragment><code class="language-js">transition()</code></p-fragment>
+  <p-fragment><code class="language-js">.select('rect')</code></p-fragment>
+  <p-fragment><code class="language-js">.attr('fill', 'red')</code></p-fragment>
+  <p-fragment><code class="language-js">.style('stroke', 'black');</code></p-fragment></pre>
+</p-slide>
+<p-slide>
+  <h4 class="our-header">Transition of <em>what?</em></h4>
+  <ul class="self-center">
+    <li>
+      <p-fragment>⚡ Numbers:</p-fragment>
+      <p-fragment><code>0</code> &#8594; <code>100</code></p-fragment>
+    </li>
+    <li>
+      <p-fragment>⚡ Colors:</p-fragment>
+      <p-fragment><code>#f60</code> &#8594; <code>rebeccapurple</code></p-fragment>
+    </li>
+    <li>
+      <p-fragment>⚡ Lengths:</p-fragment>
+      <p-fragment><code>10px</code> &#8594; <code>120px</code></p-fragment>
+    </li>
+    <li>
+      <p-fragment>⚡ Strings:</p-fragment>
+      <p-fragment><code>M0,20L10,5</code> &#8594; <code>M0,16L12,7</code></p-fragment>
+    </li>
+  </ul>
+</p-slide>
+<p-slide>
+  <h4 class="our-header">Transition tuning</h4>
+  <ul class="self-center">
+    <li><p-fragment><code>.duration()</code></p-fragment></li>
+    <li><p-fragment><code>.delay()</code></p-fragment></li>
+    <li>
+      <p-fragment><code>.ease()</code></p-fragment>
+      <p-fragment>(see <code>d3-ease</code>)</p-fragment>
+    </li>
+  </ul>
+</p-slide>
+<p-slide>
+  <h4 class="our-header">Defining starting values</h4>
+  <div class="columns">
+    <p-fragment><pre><code class="language-js">select('rect')</code>
+  <p-fragment><code class="language-js">.attr('fill', 'red');</code></p-fragment>
+<p-fragment><code class="language-js">.transition()</code></p-fragment>
+  <p-fragment><code class="language-js">.attr('fill', 'blue');</code></p-fragment></pre></p-fragment>
+    <p-fragment><pre><code class="language-js">select('rect')</code>
+  <p-fragment><code class="language-js">.transition()</code></p-fragment>
+  <p-fragment><code class="language-js">.attrTween('fill', () =>
+    interpolate('red', 'blue')
+  );</code></p-fragment></pre></p-fragment>
+</div>
+<p-fragment><p class="center">See also <code>.styleTween()</code> and <code>.tween()</code></p></p-fragment>
+</p-slide>
+<p-slide>
+  <iframe data-lazy-src="https://codesandbox.io/embed/z375662r0p?fontsize=24" style="width:100%; height:100%; border:0; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+  <a class="self-center" href="https://codesandbox.io/s/z375662r0p">codesandbox.io/s/z375662r0p</a>
+</p-slide>
+<p-slide>
+  <iframe data-lazy-src="https://codesandbox.io/embed/m5qmlpqn88?fontsize=24" style="width:100%; height:100%; border:0; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+  <a class="self-center" href="https://codesandbox.io/s/m5qmlpqn88">codesandbox.io/s/m5qmlpqn88</a>
+</p-slide>

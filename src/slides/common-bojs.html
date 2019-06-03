@@ -1,0 +1,71 @@
+<p-slide>
+  <h2 class="our-header">Common charts</h2>
+</p-slide>
+<p-slide>
+  <p class="center">From the package <code>d3-shape</code>:</p>
+  <ul class="self-center">
+    <li><p-fragment>📈 line/area charts</p-fragment></li>
+    <li><p-fragment>📈 pie charts</p-fragment></li>
+    <li><p-fragment>📈 stacked bar charts</li>
+    <li><p-fragment>📈 link charts</li>
+  </ul>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Line charts</h3>
+</p-slide>
+<p-slide>
+  <pre class="self-center"><code class="language-js">import { line } from 'd3-shape';
+const data = [
+  [ 19, 19, 24, 13, 20, 24, 14, 57, 16, 60 ],
+  [ 13, 36, 14, 24, 31, 18, 26, 40, 10, 29 ],
+  [ 43, 18, 15, 30, 21, 19, 65, 20, 18, 14 ]
+];</code>
+<p-fragment><code class="language-js">const dataLine = line()</code></p-fragment>
+  <p-fragment><code class="language-js">.x((_, i) => scaleX(i))</code></p-fragment>
+  <p-fragment><code class="language-js">.y(d => scaleY(d));</code></p-fragment>
+<p-fragment><code class="language-js">const lines = select('g.chart')
+  .selectAll('path').data(data);</code></p-fragment>
+<p-fragment><code class="language-js">lines.enter()
+  .append('path')
+  .attr('d', dataLine);</code></p-fragment></pre>
+</p-slide>
+<p-slide>
+  <iframe data-lazy-src="https://codesandbox.io/embed/lyyrll692m?fontsize=24" style="width:100%; height:100%; border:0; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+  <a class="self-center" href="https://codesandbox.io/s/lyyrll692m">codesandbox.io/s/lyyrll692m</a>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Pie charts</h3>
+</p-slide>
+<p-slide>
+  <h4 class="center">Disclaimer:</h4>
+  <p-fragment>
+    <h3 class="center">Don't make pie charts.</h3>
+  </p-fragment>
+</p-slide>
+<p-slide>
+  <pre class="self-center"><code class="language-js">import { arc, pie } from 'd3-shape';
+const data = [ 32, 140, 4, 13, 36, 6, 17, 24, 19, 37 ];</code>
+<p-fragment><code class="language-js">const pieData = pie()(data);</code></p-fragment>
+<p-fragment><code class="language-js">const sectorArc = arc()</code></p-fragment>
+  <p-fragment><code class="language-js">.innerRadius(80)
+  .outerRadius(100)
+  .padAngle(Math.PI / 360);</code></p-fragment>
+<p-fragment><code class="language-js">const sectors = select('g.chart')
+  .selectAll('path').data(pieData);</code></p-fragment>
+<p-fragment><code class="language-js">sectors.enter()
+  .append('path')
+  .attr('d', sectorArc);</code></p-fragment></pre>
+</p-slide>
+<p-slide>
+  <h4 class="center">(But seriously, don't make pie charts.)</h4>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Stacked bar charts</h3>
+</p-slide>
+<p-slide>
+  <iframe data-lazy-src="https://codesandbox.io/embed/2znnw8q16n?fontsize=24" style="width:100%; height:100%; border:0; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+  <a class="self-center" href="https://codesandbox.io/s/2znnw8q16n">codesandbox.io/s/2znnw8q16n</a>
+</p-slide>
+<p-slide>
+  <h4 class="center">(Just&hellip; don't abuse stacked charts either.)</h4>
+</p-slide>
